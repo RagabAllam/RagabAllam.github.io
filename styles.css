@@ -1070,6 +1070,10 @@ textarea {
 
 /* ... (الكود الأصلي حتى قبل الـ Media Query يبقى كما هو) ... */
 
+/* ... (الكود الأصلي حتى قبل الـ Media Query يبقى كما هو) ... */
+
+/* ... (الكود الأصلي حتى قبل الـ Media Query يبقى كما هو) ... */
+
 /* التصميم المتجاوب */
 @media (max-width: 768px) {
     .navbar {
@@ -1130,22 +1134,79 @@ textarea {
         flex-direction: column;
         gap: 10px;
     }
-    /* حاوية لأيقونات التحكم */
+    /* إخفاء الأيقونة القديمة على الموبايل */
+    .navbar-controls {
+        display: none !important; /* إخفاء الحاوية على الموبايل */
+    }
+    .lang-option {
+        padding: 15px 20px;
+        text-align: center;
+        cursor: pointer;
+        color: #fff;
+        transition: background 0.3s ease;
+        margin-top: 10px; /* تباعد من الروابط الأخرى */
+    }
+    .lang-option:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* إبقاء زر اللغة على الشاشات الكبيرة */
+@media (min-width: 769px) {
+    .nav-links {
+        flex-grow: 0; /* منع النمو الزائد على الشاشات الكبيرة */
+        justify-content: space-around; /* توزيع الروابط بشكل متساوٍ */
+    }
+    .nav-item {
+        padding: 10px 20px; /* زيادة المسافة على الشاشات الكبيرة */
+    }
     .navbar-controls {
         display: flex;
         align-items: center;
-        gap: 35px; /* زيادة التباعد بين الأيقونات لضمان الظهور */
-        z-index: 1001; /* رفع الطبقة لتجنب التغطية */
+        gap: 20px; /* تباعد أكبر على الشاشات الكبيرة */
     }
     .lang-toggle {
-        width: 35px;
-        height: 35px;
-        font-size: 0.9rem;
-        margin-left: 0; /* إزالة التباعد الجانبي السابق */
-        display: flex !important; /* التأكد من الظهور */
-        opacity: 1 !important; /* التأكد من الوضوح */
-        visibility: visible !important; /* التأكد من عدم الاختفاء */
-        z-index: 1002; /* رفع الطبقة فوق أي عنصر آخر */
+        background: linear-gradient(135deg, #8b5cf6, #f472b6);
+        color: #fff;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 3px 10px rgba(244, 114, 182, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    .lang-toggle::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        background: rgba(0, 212, 255, 0.5);
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.4s ease, height 0.4s ease;
+    }
+    .lang-toggle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px rgba(244, 114, 182, 0.6);
+    }
+    .lang-toggle.clicked::before {
+        width: 100px;
+        height: 100px;
+    }
+    .lang-toggle.clicked {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
     }
 }
 
