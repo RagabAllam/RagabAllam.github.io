@@ -169,6 +169,7 @@ body {
     z-index: 1;
 }
 
+/* التأكد من الخلفية */
 .parallax-bg {
     position: absolute;
     top: 0;
@@ -628,13 +629,14 @@ textarea {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Footer */
 footer {
     background: #1a1a1a;
     padding: 20px;
     text-align: center;
-    color: #fff; /* تغيير اللون لأبيض عشان يكون واضح */
-    font-size: 1rem; /* التأكد إن الحجم مناسب */
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* إضافة حدود للتباين */
+    color: #fff; /* لون أبيض واضح */
+    font-size: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* تباين إضافي */
 }
 
 .modal {
@@ -685,12 +687,13 @@ footer {
     cursor: pointer;
 }
 
+/* Navbar على الموبايل */
 @media (max-width: 768px) {
     .navbar {
         padding: 15px 20px;
     }
     .nav-links {
-        display: none; /* مخفي افتراضيًا */
+        display: none;
         flex-direction: column;
         position: absolute;
         top: 60px;
@@ -700,25 +703,26 @@ footer {
         padding: 25px;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         border-radius: 10px;
-        z-index: 1001; /* التأكد إنه فوق كل حاجة */
+        z-index: 1001;
     }
     .nav-links.active {
-        display: flex; /* يظهر لما نضغط على الـ menu-toggle */
+        display: flex;
     }
     .menu-toggle {
-        display: flex; /* التأكد إن الأيقونة ظاهرة */
+        display: flex;
+        z-index: 1002; /* التأكد إن الأيقونة فوق كل حاجة */
     }
     .navbar-controls {
-        display: flex; /* التأكد إن الحاوية بتاعة الـ menu-toggle والـ lang-toggle ظاهرة */
+        display: flex;
         align-items: center;
-        gap: 15px; /* مسافة بين الأيقونة والزر */
+        gap: 15px;
         position: absolute;
         top: 15px;
         left: 15px;
     }
     .lang-toggle {
-        display: block; /* التأكد إن زر اللغة ظاهر */
-        padding: 8px 20px; /* تقليل الحجم شوية عشان يناسب الموبايل */
+        display: block;
+        padding: 8px 20px;
     }
 }
 
