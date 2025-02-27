@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contact-form');
-    const langToggle = document.querySelector('.lang-toggle');
+    const langToggle = document.querySelector('.lang-toggle'); // للشاشات الكبيرة
+    const langOption = document.querySelector('.lang-option'); // للموبايل
     const emailTo = 'midoallam2003@gmail.com'; // البريد الإلكتروني الخاص بك
     let currentLang = localStorage.getItem('lang') || 'ar'; // اللغة الافتراضية هي العربية
 
@@ -11,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const arText = element.getAttribute('data-ar');
             const enText = element.getAttribute('data-en');
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.placeholder = lang === 'ar' ? arText : enText; // تحديث الـ placeholder بشكل صريح
+                element.placeholder = lang === 'ar' ? arText : enText; // تحديث الـ placeholder
             } else if (element.tagName === 'BUTTON' && element.classList.contains('btn-submit')) {
                 element.textContent = lang === 'ar' ? arText : enText; // تحديث نص زر الإرسال
             } else {
@@ -19,16 +20,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             if (element.tagName === 'TITLE') document.title = element.textContent;
         });
-        langToggle.textContent = lang === 'ar' ? 'EN' : 'AR';
-        langToggle.classList.toggle('clicked', false); // إعادة الضبط عند التبديل
+        if (langToggle) langToggle.textContent = lang === 'ar' ? 'EN' : 'AR';
+        if (langOption) langOption.textContent = lang === 'ar' ? 'EN' : 'AR';
+        langOption?.classList.toggle('clicked', false); // إعادة الضبط عند التبديل
         localStorage.setItem('lang', lang); // حفظ اللغة في التخزين المحلي
     }
 
-    // تفعيل زر اللغة
-    langToggle.addEventListener('click', () => {
-        currentLang = currentLang === 'ar' ? 'en' : 'ar';
-        updateLanguage(currentLang);
-    });
+    // تفعيل تبديل اللغة
+    if (langToggle) {
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            updateLanguage(currentLang);
+        });
+    }
+    if (langOption) {
+        langOption.addEventListener('click', () => {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            updateLanguage(currentLang);
+        });
+    }
 
     // تهيئة اللغة عند التحميل
     updateLanguage(currentLang);
