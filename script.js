@@ -34,6 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateLanguage(currentLang);
 
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            console.log('Menu toggled'); // للتحقق في الكونسول
+        });
+    }
+
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -42,15 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const message = form.querySelector('textarea[name="message"]').value;
             window.location.href = `mailto:${emailTo}?subject=رسالة من ${name}&body=${encodeURIComponent(message)}`;
             form.reset();
-        });
-    }
-
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
         });
     }
 
