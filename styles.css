@@ -1064,6 +1064,8 @@ textarea {
 
 /* ... (الكود الأصلي حتى قبل الـ Media Query يبقى كما هو) ... */
 
+/* ... (الكود الأصلي حتى قبل الـ Media Query يبقى كما هو) ... */
+
 /* التصميم المتجاوب */
 @media (max-width: 768px) {
     .navbar {
@@ -1076,7 +1078,7 @@ textarea {
         top: 60px;
         right: 15px; /* محاذاة يمين مع مسافة من الحافة */
         background: linear-gradient(90deg, rgba(139, 92, 246, 0.9), rgba(244, 114, 182, 0.9));
-        width: 280px; /* زيادة العرض إلى 280px لتحسين القراءة */
+        width: 280px; /* الحفاظ على العرض المطلوب */
         padding: 25px; /* زيادة المسافة الداخلية */
         text-align: center; /* مركز النصوص داخل القائمة */
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* ظل أقوى */
@@ -1095,6 +1097,22 @@ textarea {
         width: 100%;
         text-align: center; /* التأكد من مركزة النصوص */
     }
+    .logo {
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem; /* تقليل الحجم على الموبايل */
+        opacity: 0.8; /* تقليل الوضوح لتوفير مساحة */
+    }
+    .logo-main {
+        font-size: 1.2rem;
+        color: #fff;
+        text-shadow: 0 0 4px rgba(244, 114, 182, 0.6);
+    }
+    .logo-subtitle {
+        font-size: 0.9rem;
+        color: #e0e0e0;
+        text-shadow: 0 0 2px rgba(139, 92, 246, 0.5);
+    }
     .hero-section {
         padding-top: 60px; /* تقليل المسافة على الموبايل */
     }
@@ -1112,18 +1130,19 @@ textarea {
     .navbar-controls {
         display: flex;
         align-items: center;
-        gap: 25px; /* زيادة التباعد بين الأيقونات لمنع التداخل */
+        gap: 25px; /* زيادة التباعد بين الأيقونات لضمان الظهور */
     }
     .lang-toggle {
         width: 35px;
         height: 35px;
         font-size: 0.9rem;
         margin-left: 0; /* إزالة التباعد الجانبي السابق */
+        display: flex; /* التأكد من ظهور الأيقونة */
+        opacity: 1; /* التأكد من الوضوح */
     }
 }
 
 /* ... (باقي الكود يبقى كما هو بعد الـ Media Query) ... */
-
 /* الاتجاه الإنجليزي */
 body.en {
     direction: ltr;
