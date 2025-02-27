@@ -199,7 +199,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* القسم التعريفي (Hero Section) */
+/* قسم التعريفي (Hero Section) */
 .hero-section {
     height: 100vh;
     position: relative;
@@ -235,6 +235,7 @@ body {
 .hero-content {
     position: relative;
     z-index: 2;
+    text-align: center; /* التأكد من مركزة النصوص داخل المحتوى */
 }
 
 .hero-title {
@@ -247,15 +248,48 @@ body {
 
 .hero-subtitle {
     font-size: 1.5rem;
-    max-width: 700px;
+    max-width: 800px; /* تحديد عرض أقصى لضبط النص */
+    margin: 0 auto; /* مركزة أفقية */
     color: #e0e0e0;
     margin-bottom: 40px;
+    text-align: center; /* التأكد من مركزة النص */
+    padding: 0 20px; /* إضافة مسافة جانبية لتجنب القطع */
+}
+
+/* مركزة خاصة حسب اللغة */
+body.ar .hero-subtitle {
+    text-align: center; /* التأكد من مركزة النص العربي */
+    direction: rtl; /* اتجاه النص العربي */
+}
+
+body.en .hero-subtitle {
+    text-align: center; /* التأكد من مركزة النص الإنجليزي */
+    direction: ltr; /* اتجاه النص الإنجليزي */
 }
 
 .hero-buttons {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     justify-content: center;
+    flex-wrap: wrap; /* للسماح بلف الأزرار على الشاشات الصغيرة */
+}
+
+/* التصميم المتجاوب */
+@media (max-width: 768px) {
+    .hero-logo {
+        top: 15%;
+        width: 150px; /* تقليل الحجم على الموبايل */
+    }
+    .hero-title { font-size: 3rem; }
+    .hero-subtitle {
+        font-size: 1.2rem;
+        max-width: 90%; /* تقليل العرض على الموبايل */
+        padding: 0 10px;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
 /* الأزرار العامة */
@@ -265,7 +299,10 @@ body {
     font-size: 1.2rem;
     font-weight: 700;
     border-radius: 50px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .btn-primary {
@@ -340,7 +377,7 @@ body {
     color: #fff;
     margin-bottom: 50px;
     text-shadow: 0 0 20px rgba(139, 92, 246, 0.8), 0 0 40px rgba(0, 212, 255, 0.6); /* توهج نيون */
-    background: linear-gradient(90deg, #8b5cf6, #00d4ff); /* تdrj للنص */
+    background: linear-gradient(90deg, #8b5cf6, #00d4ff); /* تدرج للنص */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
@@ -535,27 +572,15 @@ body {
     text-align: center;
     padding: 100px 20px;
     overflow: hidden;
+    background: linear-gradient(135deg, #1f2937, #2d3748); /* تدرج رصاصي غامق مميز */
 }
 
 .contact-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('images/contact-bg.jpg') no-repeat center center/cover; /* استبدل بمسار صورة فعلية */
-    z-index: -2;
-    animation: subtleZoom 20s infinite alternate;
+    display: none; /* إخفاء الخلفية الحالية لأننا نستخدم تدرجًا */
 }
 
 .contact-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(147, 197, 253, 0.4)); /* رمادي داكن إلى أزرق فاتح */
-    z-index: -1;
+    display: none; /* إخفاء التدرج السابق */
 }
 
 .contact-content {
@@ -568,10 +593,10 @@ body {
 .contact-section .section-title {
     font-size: 4rem;
     font-weight: 800;
-    color: #fff;
+    color: #ffffff; /* لون أبيض للتباين مع التدرج الرصاصي */
     margin-bottom: 50px;
-    text-shadow: 0 0 15px rgba(147, 197, 253, 0.6); /* توهج أزرق فاتح */
-    background: linear-gradient(90deg, #1e40af, #dbeafe); /* تدرج أزرق داكن إلى فاتح */
+    text-shadow: 0 0 20px rgba(147, 197, 253, 0.8); /* توهج أزرق فاتح لإبراز العنوان */
+    background: linear-gradient(90deg, #ffffff, #93c5fd); /* تدرج من أبيض إلى أزرق فاتح */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: slideDown 1s ease forwards;
@@ -614,18 +639,52 @@ textarea {
     resize: vertical;
 }
 
+/* زر إرسال - عصري ومتطور جدًا */
 .btn-submit {
-    background: linear-gradient(135deg, #1e40af, #93c5fd); /* تدرج أزرق داكن إلى فاتح */
+    background: linear-gradient(135deg, #1e40af, #3b82f6); /* تدرج أزرق داكن إلى أزرق سماوي */
     color: #fff;
-    box-shadow: 0 5px 15px rgba(30, 64, 175, 0.4);
-    padding: 15px 40px;
+    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.2); /* ظل 3D مع تأثير زجاجي */
+    padding: 18px 40px;
     border-radius: 50px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, text-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    backdrop-filter: blur(5px); /* تأثير زجاجي */
+}
+
+.btn-submit::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
 }
 
 .btn-submit:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(147, 197, 253, 0.6);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(30, 64, 175, 0.8), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #3b82f6, #1e40af); /* عكس التدرج عند Hover */
+}
+
+.btn-submit:active {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(30, 64, 175, 0.6), inset 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* توهج نيون عند الضغط */
+}
+
+.btn-submit:active::before {
+    width: 300px;
+    height: 300px;
 }
 
 /* روابط السوشيال ميديا - أيقونات عصرية وحديثة باستخدام Font Awesome */
@@ -1028,7 +1087,8 @@ textarea {
         font-size: 1rem;
     }
     .btn-submit {
-        padding: 12px 30px;
+        padding: 15px 35px; /* تقليل الحجم قليلاً على الموبايل */
+        font-size: 1.2rem;
     }
     .social-links {
         gap: 30px;
