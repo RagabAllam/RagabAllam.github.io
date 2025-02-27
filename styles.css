@@ -1062,31 +1062,26 @@ textarea {
     cursor: pointer;
 }
 
+/* ... (الكود الأصلي حتى قبل الـ Media Query يبقى كما هو) ... */
+
 /* التصميم المتجاوب */
 @media (max-width: 768px) {
     .navbar {
-        padding: 15px 20px;
-        border-radius: 0 0 15px 15px;
+        padding: 15px 15px; /* تقليل التباعد الجانبي لتوفير مساحة */
     }
-    .hero-title { font-size: 3rem; }
-    .hero-subtitle { font-size: 1.2rem; }
-    .section-title { font-size: 2.5rem; }
-    .about-section { padding: 60px 15px; margin: 20px 10px; }
-    .about-section .section-title { font-size: 2.8rem; margin-bottom: 25px; }
-    .about-section .about-text { font-size: 1.4rem; padding: 15px; }
     .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
         top: 60px;
-        left: 0;
-        right: 0;
+        right: 15px; /* محاذاة يمين مع مسافة من الحافة */
         background: linear-gradient(90deg, rgba(139, 92, 246, 0.9), rgba(244, 114, 182, 0.9));
-        width: 100%;
-        padding: 10px;
-        text-align: center;
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-        border-radius: 0 0 10px 10px;
+        width: 280px; /* زيادة العرض إلى 280px لتحسين القراءة */
+        padding: 25px; /* زيادة المسافة الداخلية */
+        text-align: center; /* مركز النصوص داخل القائمة */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* ظل أقوى */
+        border-radius: 10px;
+        transition: all 0.3s ease; /* انتقال سلس عند الفتح */
     }
     .nav-links.active {
         display: flex;
@@ -1095,45 +1090,39 @@ textarea {
         display: flex;
     }
     .nav-item {
-        font-size: 1rem;
-        padding: 8px;
+        font-size: 1.1rem; /* زيادة الحجم قليلاً */
+        padding: 15px 20px; /* زيادة التباعد الداخلي */
+        width: 100%;
+        text-align: center; /* التأكد من مركزة النصوص */
     }
-    .hero-buttons { flex-direction: column; gap: 15px; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .pricing-grid { grid-template-columns: 1fr; }
+    .hero-section {
+        padding-top: 60px; /* تقليل المسافة على الموبايل */
+    }
+    .hero-title { font-size: 3rem; }
+    .hero-subtitle {
+        font-size: 1.2rem;
+        max-width: 90%; /* تقليل العرض على الموبايل */
+        padding: 0 10px;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    /* حاوية لأيقونات التحكم */
+    .navbar-controls {
+        display: flex;
+        align-items: center;
+        gap: 25px; /* زيادة التباعد بين الأيقونات لمنع التداخل */
+    }
     .lang-toggle {
         width: 35px;
         height: 35px;
         font-size: 0.9rem;
-        right: 65px;
-    }
-    .contact-section {
-        padding: 60px 15px;
-    }
-    .contact-section .section-title {
-        font-size: 2.5rem;
-        margin-bottom: 30px;
-    }
-    #contact-form {
-        padding: 20px;
-    }
-    input, textarea {
-        font-size: 1rem;
-    }
-    .btn-submit {
-        padding: 15px 35px; /* تقليل الحجم قليلاً على الموبايل */
-        font-size: 1.2rem;
-    }
-    .social-links {
-        gap: 30px;
-        margin-top: 20px;
-    }
-    .social-icon {
-        font-size: 2rem; /* تقليل الحجم على الموبايل */
-        width: 50px;
-        height: 50px;
+        margin-left: 0; /* إزالة التباعد الجانبي السابق */
     }
 }
+
+/* ... (باقي الكود يبقى كما هو بعد الـ Media Query) ... */
 
 /* الاتجاه الإنجليزي */
 body.en {
