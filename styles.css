@@ -12,12 +12,11 @@ body {
     overflow-x: hidden;
 }
 
-/* شريط التنقل (Navbar) */
 .navbar {
     background: linear-gradient(90deg, rgba(139, 92, 246, 0.9), rgba(244, 114, 182, 0.9));
     padding: 20px 40px;
     display: flex;
-    justify-content: space-between; /* توزيع العناصر بشكل متساوٍ */
+    justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;
@@ -28,10 +27,6 @@ body {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
 }
 
-.navbar.scrolled {
-    /* بدون تغييرات */
-}
-
 .nav-links {
     list-style: none;
     display: flex;
@@ -39,8 +34,7 @@ body {
     margin: 0;
     padding: 0;
     justify-content: center;
-    flex-grow: 1;
-    transition: all 0.3s ease; /* إضافة انتقال سلس */
+    transition: all 0.3s ease;
 }
 
 .nav-item {
@@ -49,7 +43,7 @@ body {
     font-size: 1.1rem;
     font-weight: 500;
     position: relative;
-    padding: 8px 15px; /* زيادة المسافة الداخلية */
+    padding: 8px 15px;
     border-radius: 15px;
     transition: transform 0.3s ease, text-shadow 0.3s ease, background 0.3s ease;
     text-align: center;
@@ -78,33 +72,23 @@ body {
     background: rgba(255, 255, 255, 0.1);
 }
 
-.nav-item.clicked {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-}
-
 .menu-toggle {
     display: none;
     flex-direction: column;
-    gap: 6px; /* زيادة المسافة بين الخطوط */
+    gap: 6px;
     cursor: pointer;
-    width: 40px; /* زيادة الحجم قليلاً */
+    width: 40px;
     height: 40px;
     justify-content: center;
     align-items: center;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     transition: all 0.3s ease;
-    position: relative;
-}
-
-.menu-toggle:hover {
-    background: rgba(244, 114, 182, 0.3);
 }
 
 .menu-toggle .bar {
-    width: 25px; /* زيادة عرض الخطوط */
-    height: 3px; /* زيادة السماكة */
+    width: 25px;
+    height: 3px;
     background: #fff;
     border-radius: 2px;
     transition: all 0.3s ease;
@@ -126,9 +110,8 @@ body {
     background: linear-gradient(135deg, #8b5cf6, #f472b6);
     color: #fff;
     border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    padding: 10px 25px;
+    border-radius: 25px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
@@ -137,7 +120,7 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow: 0 3px 10px rgba(244, 114, 182, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     position: relative;
     overflow: hidden;
 }
@@ -158,82 +141,14 @@ body {
 .lang-toggle:hover {
     transform: scale(1.1);
     box-shadow: 0 5px 15px rgba(244, 114, 182, 0.6);
+    background: linear-gradient(135deg, #f472b6, #8b5cf6);
 }
 
-.lang-toggle.clicked::before {
-    width: 100px;
-    height: 100px;
+.lang-toggle:hover::before {
+    width: 150px;
+    height: 150px;
 }
 
-.lang-toggle.clicked {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-}
-
-/* التصميم المتجاوب */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 15px 20px;
-        border-radius: 0 0 15px 15px;
-    }
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 20px; /* محاذاة يمين مع مسافة من الحافة */
-        background: linear-gradient(90deg, rgba(139, 92, 246, 0.9), rgba(244, 114, 182, 0.9));
-        width: 220px; /* زيادة العرض قليلاً */
-        padding: 20px; /* زيادة المسافة الداخلية */
-        text-align: right;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* ظل أقوى */
-        border-radius: 10px;
-        transition: all 0.3s ease; /* انتقال سلس عند الفتح */
-    }
-    .nav-links.active {
-        display: flex;
-    }
-    .menu-toggle {
-        display: flex;
-    }
-    .nav-item {
-        font-size: 1.1rem; /* زيادة الحجم قليلاً */
-        padding: 12px 15px;
-        width: 100%;
-        text-align: right;
-    }
-    .hero-section {
-        padding-top: 60px; /* تقليل المسافة على الموبايل */
-    }
-    .hero-title { font-size: 3rem; }
-    .hero-subtitle {
-        font-size: 1.2rem;
-        max-width: 90%; /* تقليل العرض على الموبايل */
-        padding: 0 10px;
-    }
-    .hero-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .lang-toggle {
-        width: 35px;
-        height: 35px;
-        font-size: 0.9rem;
-        right: 60px; /* تعديل الموقع لتوازن أفضل */
-    }
-}
-
-@media (min-width: 769px) {
-    .nav-links {
-        flex-grow: 0; /* منع النمو الزائد على الشاشات الكبيرة */
-        justify-content: space-around; /* توزيع الروابط بشكل متساوٍ */
-    }
-    .nav-item {
-        padding: 10px 20px; /* زيادة المسافة على الشاشات الكبيرة */
-    }
-}
-
-/* قسم التعريفي (Hero Section) */
 .hero-section {
     height: 100vh;
     position: relative;
@@ -264,12 +179,12 @@ body {
     transform: translateY(0);
     z-index: 0;
     animation: parallax 20s infinite linear;
+    will-change: transform;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    text-align: center; /* التأكد من مركزة النصوص داخل المحتوى */
 }
 
 .hero-title {
@@ -282,51 +197,26 @@ body {
 
 .hero-subtitle {
     font-size: 1.5rem;
-    max-width: 800px; /* تحديد عرض أقصى لضبط النص */
-    margin: 0 auto; /* مركزة أفقية */
+    max-width: 800px;
+    margin: 0 auto;
     color: #e0e0e0;
     margin-bottom: 40px;
-    text-align: center; /* التأكد من مركزة النص */
-    padding: 0 20px; /* إضافة مسافة جانبية لتجنب القطع */
+    text-align: center;
+    padding: 0 20px;
 }
 
-/* مركزة خاصة حسب اللغة */
-body.ar .hero-subtitle {
-    text-align: center; /* التأكد من مركزة النص العربي */
-    direction: rtl; /* اتجاه النص العربي */
-}
-
+body.ar .hero-subtitle,
 body.en .hero-subtitle {
-    text-align: center; /* التأكد من مركزة النص الإنجليزي */
-    direction: ltr; /* اتجاه النص الإنجليزي */
+    text-align: center;
 }
 
 .hero-buttons {
     display: flex;
     gap: 15px;
     justify-content: center;
-    flex-wrap: wrap; /* للسماح بلف الأزرار على الشاشات الصغيرة */
+    flex-wrap: wrap;
 }
 
-/* التصميم المتجاوب */
-@media (max-width: 768px) {
-    .hero-logo {
-        top: 15%;
-        width: 150px; /* تقليل الحجم على الموبايل */
-    }
-    .hero-title { font-size: 3rem; }
-    .hero-subtitle {
-        font-size: 1.2rem;
-        max-width: 90%; /* تقليل العرض على الموبايل */
-        padding: 0 10px;
-    }
-    .hero-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
-/* الأزرار العامة */
 .btn {
     padding: 15px 35px;
     text-decoration: none;
@@ -334,8 +224,6 @@ body.en .hero-subtitle {
     font-weight: 700;
     border-radius: 50px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-    position: relative;
-    overflow: hidden;
     cursor: pointer;
 }
 
@@ -364,10 +252,9 @@ body.en .hero-subtitle {
     box-shadow: 0 10px 25px rgba(0, 212, 255, 0.6);
 }
 
-/* قسم من أنا - تصميم مستقبلي جذاب */
 .about-section {
     padding: 120px 20px;
-    background: linear-gradient(135deg, #1e1e1e, #2a2a3a); /* تدرج داكن أنيق */
+    background: linear-gradient(135deg, #1e1e1e, #2a2a3a);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -375,10 +262,9 @@ body.en .hero-subtitle {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    border-radius: 25px; /* انحناءات أكبر */
-    margin: 50px 30px; /* مسافة خارجية */
+    border-radius: 25px;
+    margin: 50px 30px;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
-    z-index: 1;
 }
 
 .about-section::before {
@@ -388,80 +274,37 @@ body.en .hero-subtitle {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(107, 33, 168, 0.2), transparent 70%); /* تأثير موجي */
+    background: radial-gradient(circle, rgba(107, 33, 168, 0.2), transparent 70%);
     animation: wave 15s infinite linear;
     z-index: -1;
 }
 
-.about-section::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(107, 33, 168, 0.1), rgba(6, 182, 212, 0.1));
-    z-index: -1;
-    opacity: 0.8;
-}
-
 .about-section .section-title {
-    font-size: 4rem; /* حجم كبير */
+    font-size: 4rem;
     font-weight: 800;
     color: #fff;
     margin-bottom: 50px;
-    text-shadow: 0 0 20px rgba(139, 92, 246, 0.8), 0 0 40px rgba(0, 212, 255, 0.6); /* توهج نيون */
-    background: linear-gradient(90deg, #8b5cf6, #00d4ff); /* تدرج للنص */
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.8), 0 0 40px rgba(0, 212, 255, 0.6);
+    background: linear-gradient(90deg, #8b5cf6, #00d4ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    position: relative;
     animation: slideDown 1s ease forwards;
 }
 
-.about-section .section-title::after {
-    content: '';
-    position: absolute;
-    width: 60%;
-    height: 3px;
-    background: linear-gradient(90deg, #8b5cf6, #00d4ff); /* خط زخرفي */
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 2px;
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
-}
-
 .about-section .about-text {
-    font-size: 1.7rem; /* حجم أنيق */
+    font-size: 1.7rem;
     max-width: 1000px;
     margin: 0 auto;
     color: #e0e0e0;
     font-weight: 400;
-    line-height: 2.2; /* تباعد كبير */
+    line-height: 2.2;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     padding: 25px 40px;
-    background: rgba(255, 255, 255, 0.08); /* خلفية شبه شفافة */
-    border-radius: 20px; /* انحناءات أكبر */
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
     box-shadow: 0 5px 25px rgba(139, 92, 246, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: fadeSlideUp 1.2s ease 0.3s forwards;
     opacity: 0;
-}
-
-.about-section .about-text:hover {
-    transform: translateY(-5px); /* حركة خفيفة عند الـHover */
-    box-shadow: 0 10px 35px rgba(0, 212, 255, 0.3);
-}
-
-/* تأثيرات حركية */
-@keyframes wave {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes slideDown {
-    0% { opacity: 0; transform: translateY(-50px); }
-    100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeSlideUp {
@@ -469,7 +312,16 @@ body.en .hero-subtitle {
     100% { opacity: 1; transform: translateY(0); }
 }
 
-/* قسم المشاريع */
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .projects-section {
     padding: 100px 20px;
     background: #1a1a1a;
@@ -511,10 +363,6 @@ body.en .hero-subtitle {
     transition: transform 0.4s ease;
 }
 
-.project-card:hover img {
-    transform: scale(1.05);
-}
-
 .project-info {
     padding: 20px;
 }
@@ -530,7 +378,6 @@ body.en .hero-subtitle {
     color: #ccc;
 }
 
-/* قسم الأسعار */
 .pricing-section {
     padding: 100px 20px;
     background: #1a1a1a;
@@ -576,7 +423,6 @@ body.en .hero-subtitle {
     color: #fff;
     font-weight: 700;
     margin-bottom: 20px;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .package-features {
@@ -590,36 +436,17 @@ body.en .hero-subtitle {
     margin: 10px 0;
 }
 
-.price-card .btn {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-}
-
-/* قسم التواصل - تصميم حديث وجذاب مع ألوان متناسقة */
 .contact-section {
-    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 100px 20px;
-    overflow: hidden;
-    background: linear-gradient(135deg, #1f2937, #2d3748); /* تدرج رصاصي غامق مميز */
-}
-
-.contact-bg {
-    display: none; /* إخفاء الخلفية الحالية لأننا نستخدم تدرجًا */
-}
-
-.contact-overlay {
-    display: none; /* إخفاء التدرج السابق */
+    background: linear-gradient(135deg, #1f2937, #2d3748);
 }
 
 .contact-content {
-    position: relative;
-    z-index: 1;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -627,23 +454,20 @@ body.en .hero-subtitle {
 .contact-section .section-title {
     font-size: 4rem;
     font-weight: 800;
-    color: #ffffff; /* لون أبيض للتباين مع التدرج الرصاصي */
+    color: #ffffff;
     margin-bottom: 50px;
-    text-shadow: 0 0 20px rgba(147, 197, 253, 0.8); /* توهج أزرق فاتح لإبراز العنوان */
-    background: linear-gradient(90deg, #ffffff, #93c5fd); /* تدرج من أبيض إلى أزرق فاتح */
+    text-shadow: 0 0 20px rgba(147, 197, 253, 0.8);
+    background: linear-gradient(90deg, #ffffff, #93c5fd);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: slideDown 1s ease forwards;
 }
 
 #contact-form {
-    background: rgba(243, 244, 246, 0.2); /* رمادي فاتح شبه شفاف */
+    background: rgba(243, 244, 246, 0.2);
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
     margin-bottom: 40px;
-    border: 1px solid rgba(147, 197, 253, 0.3); /* حدود أزرق فاتح */
 }
 
 input, textarea {
@@ -652,20 +476,15 @@ input, textarea {
     margin: 15px 0;
     border: none;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.9); /* خلفية بيضاء شبه شفافة */
+    background: rgba(255, 255, 255, 0.9);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     font-size: 1.1rem;
-    color: #1f2937; /* رمادي داكن للنص */
-    transition: box-shadow 0.3s ease;
+    color: #1f2937;
 }
 
 input:focus, textarea:focus {
-    box-shadow: 0 5px 20px rgba(147, 197, 253, 0.5); /* توهج أزرق فاتح */
+    box-shadow: 0 5px 20px rgba(147, 197, 253, 0.5);
     outline: none;
-}
-
-input::placeholder, textarea::placeholder {
-    color: #6b7280; /* رمادي متوسط للـPlaceholder */
 }
 
 textarea {
@@ -673,144 +492,66 @@ textarea {
     resize: vertical;
 }
 
-/* زر إرسال - عصري ومتطور جدًا */
 .btn-submit {
-    background: linear-gradient(135deg, #1e40af, #3b82f6); /* تدرج أزرق داكن إلى أزرق سماوي */
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
     color: #fff;
-    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.2); /* ظل 3D مع تأثير زجاجي */
     padding: 18px 40px;
     border-radius: 50px;
     border: none;
     font-size: 1.3rem;
     font-weight: 700;
-    text-transform: uppercase;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, text-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    backdrop-filter: blur(5px); /* تأثير زجاجي */
-}
-
-.btn-submit::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-submit:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 35px rgba(30, 64, 175, 0.8), inset 0 2px 4px rgba(255, 255, 255, 0.3);
-    background: linear-gradient(135deg, #3b82f6, #1e40af); /* عكس التدرج عند Hover */
+    box-shadow: 0 12px 35px rgba(30, 64, 175, 0.8);
 }
 
-.btn-submit:active {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(30, 64, 175, 0.6), inset 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* توهج نيون عند الضغط */
-}
-
-.btn-submit:active::before {
-    width: 300px;
-    height: 300px;
-}
-
-/* روابط السوشيال ميديا - أيقونات عصرية وحديثة باستخدام Font Awesome */
 .social-links {
     display: flex;
     justify-content: center;
     gap: 50px;
     margin-top: 30px;
-    animation: bounceIn 1.2s ease 1s forwards;
-    opacity: 0;
 }
 
 .social-icon {
-    font-size: 2.5rem; /* حجم أكبر للأيقونات */
-    text-decoration: none;
+    font-size: 2.5rem;
     width: 60px;
     height: 60px;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
-    color: #fff;
+    transition: transform 0.4s ease;
 }
 
 .social-icon.facebook {
     background: linear-gradient(135deg, #1877f2, #4267b2);
-    box-shadow: 0 10px 30px rgba(24, 119, 242, 0.4);
-}
-
-.social-icon.facebook:hover {
-    transform: scale(1.15);
-    box-shadow: 0 15px 40px rgba(24, 119, 242, 0.6);
-    background: linear-gradient(135deg, #4267b2, #1877f2);
 }
 
 .social-icon.whatsapp {
     background: linear-gradient(135deg, #25d366, #075e54);
-    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
-}
-
-.social-icon.whatsapp:hover {
-    transform: scale(1.15);
-    box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
-    background: linear-gradient(135deg, #075e54, #25d366);
 }
 
 .social-icon.call {
     background: linear-gradient(135deg, #d97706, #ea580c);
-    box-shadow: 0 10px 30px rgba(217, 119, 6, 0.4);
 }
 
-.social-icon.call:hover {
+.social-icon:hover {
     transform: scale(1.15);
-    box-shadow: 0 15px 40px rgba(217, 119, 6, 0.6);
-    background: linear-gradient(135deg, #ea580c, #d97706);
 }
 
-.social-icon::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.social-icon:hover::after {
-    opacity: 0.3;
-}
-
-/* قسم الخدمات - تنسيق محسن مع نصوص واضحة */
 .services-section {
     padding: 100px 20px;
     background: #1a1a1a;
     text-align: center;
-    overflow: hidden;
 }
 
 .services-section .section-title {
     font-size: 3.5rem;
-    font-weight: 700;
     color: #fff;
     margin-bottom: 60px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
     background: linear-gradient(90deg, #8b5cf6, #f472b6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -818,7 +559,7 @@ textarea {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* خمس أعمدة متساوية */
+    grid-template-columns: repeat(5, 1fr);
     gap: 30px;
     max-width: 1400px;
     margin: 0 auto;
@@ -827,69 +568,30 @@ textarea {
 .service-card {
     background: #252525;
     border-radius: 20px;
-    padding: 30px; /* زيادة المساحة الداخلية */
+    padding: 30px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    min-height: 320px; /* ارتفاع أدنى لاستيعاب النصوص */
+    transition: transform 0.4s ease;
+    min-height: 320px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 212, 255, 0.3);
 }
 
 .service-card h3 {
-    font-size: 1.6rem; /* زيادة حجم الخط */
-    color: #fff; /* لون أبيض لتباين أعلى */
-    text-shadow: 0 0 8px rgba(0, 212, 255, 0.7); /* توهج سماوي للوضوح */
+    font-size: 1.6rem;
+    color: #fff;
     margin-bottom: 20px;
-    line-height: 1.4;
-    font-weight: 600;
 }
 
 .service-card p {
     font-size: 1.1rem;
-    color: #e0e0e0; /* لون أفتح للوضوح */
-    line-height: 1.6;
-    flex-grow: 1; /* لضمان ملء المساحة */
+    color: #e0e0e0;
 }
 
-/* التصميم المتجاوب لقسم الخدمات */
-@media (max-width: 1200px) {
-    .services-grid {
-        grid-template-columns: repeat(3, 1fr); /* ثلاثة أعمدة على الشاشات المتوسطة */
-    }
-}
-
-@media (max-width: 768px) {
-    .services-section {
-        padding: 60px 15px;
-    }
-    .services-section .section-title {
-        font-size: 2.5rem;
-        margin-bottom: 40px;
-    }
-    .services-grid {
-        grid-template-columns: 1fr; /* عمود واحد على الشاشات الصغيرة */
-        gap: 20px;
-    }
-    .service-card {
-        min-height: auto; /* ارتفاع متكيف على الشاشات الصغيرة */
-        padding: 25px;
-    }
-    .service-card h3 {
-        font-size: 1.5rem;
-    }
-    .service-card p {
-        font-size: 1rem;
-    }
-}
-
-/* قسم ما يميزني عن غيري */
 .unique-section {
     padding: 80px 20px;
     background: linear-gradient(135deg, #1e1e1e, #2a2a3a);
@@ -897,39 +599,21 @@ textarea {
     margin: 50px 30px;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
     text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.unique-section::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(107, 33, 168, 0.2), transparent 70%);
-    animation: wave 15s infinite linear;
-    z-index: -1;
 }
 
 .unique-section .section-title {
     font-size: 3.5rem;
-    font-weight: 800;
     color: #fff;
     margin-bottom: 50px;
-    text-shadow: 0 0 20px rgba(139, 92, 246, 0.8), 0 0 40px rgba(0, 212, 255, 0.6);
     background: linear-gradient(90deg, #8b5cf6, #00d4ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: slideDown 1s ease forwards;
 }
 
 .unique-list {
     list-style: none;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -938,77 +622,19 @@ textarea {
 .unique-list li {
     font-size: 1.3rem;
     color: #e0e0e0;
-    line-height: 1.8;
     padding: 15px 25px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
 }
 
-.unique-list li::before {
-    content: '•';
-    color: #00d4ff;
-    font-size: 1.5rem;
-    margin-left: 10px;
-    vertical-align: middle;
+footer {
+    background: #1a1a1a;
+    padding: 20px;
+    text-align: center;
+    color: #ccc;
 }
 
-.unique-list li:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
-}
-
-/* التصميم المتجاوب لقسم ما يميزني */
-@media (max-width: 768px) {
-    .unique-section {
-        padding: 60px 15px;
-        margin: 20px 10px;
-    }
-    .unique-section .section-title {
-        font-size: 2.5rem;
-        margin-bottom: 30px;
-    }
-    .unique-list li {
-        font-size: 1.1rem;
-        padding: 12px 20px;
-    }
-}
-
-/* التأثيرات الحركية */
-@keyframes subtleZoom {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.05); }
-}
-
-@keyframes parallax {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-20%); }
-}
-
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeIn 1s ease forwards;
-}
-
-@keyframes fadeIn {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.slide-in {
-    opacity: 0;
-    transform: translateY(50px);
-    animation: slideIn 1s ease 0.5s forwards;
-}
-
-@keyframes slideIn {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* النافذة المنبثقة (Modal) */
 .modal {
     display: none;
     position: fixed;
@@ -1027,10 +653,8 @@ textarea {
     background: #252525;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
     max-width: 80%;
     max-height: 80%;
-    overflow: hidden;
 }
 
 #modalImage {
@@ -1038,7 +662,6 @@ textarea {
     height: auto;
     max-height: 70vh;
     border-radius: 10px;
-    object-fit: contain;
 }
 
 .close-modal {
@@ -1048,7 +671,6 @@ textarea {
     font-size: 2rem;
     color: #fff;
     cursor: pointer;
-    text-shadow: 0 0 10px rgba(255, 111, 97, 0.7);
     transition: transform 0.3s ease;
 }
 
@@ -1057,41 +679,25 @@ textarea {
     color: #ff6f61;
 }
 
-/* جعل الصورة قابلة للنقر */
 .project-image {
     cursor: pointer;
 }
 
-/* ... (الكود الأصلي حتى قبل الـ Media Query يبقى كما هو) ... */
-
-/* ... (الكود الأصلي حتى قبل الـ Media Query يبقى كما هو) ... */
-
-/* ... (الكود الأصلي حتى قبل الـ Media Query يبقى كما هو) ... */
-
-/* ... (الكود الأصلي حتى قبل الـ Media Query يبقى كما هو) ... */
-
-/* ... (الكود الأصلي حتى قبل الـ Media Query يبقى كما هو) ... */
-
-/* ... (الكود الأصلي حتى قبل الـ Media Query يبقى كما هو) ... */
-
-/* التصميم المتجاوب */
 @media (max-width: 768px) {
     .navbar {
-        padding: 15px 15px; /* تقليل التباعد الجانبي لتوفير مساحة */
+        padding: 15px 20px;
     }
     .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
         top: 60px;
-        right: 15px; /* محاذاة يمين مع مسافة من الحافة */
+        right: 15px;
         background: linear-gradient(90deg, rgba(139, 92, 246, 0.9), rgba(244, 114, 182, 0.9));
-        width: 280px; /* الحفاظ على العرض المطلوب */
-        padding: 25px; /* زيادة المسافة الداخلية */
-        text-align: center; /* مركز النصوص داخل القائمة */
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* ظل أقوى */
+        width: 280px;
+        padding: 25px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         border-radius: 10px;
-        transition: all 0.3s ease; /* انتقال سلس عند الفتح */
     }
     .nav-links.active {
         display: flex;
@@ -1099,120 +705,33 @@ textarea {
     .menu-toggle {
         display: flex;
     }
-    .nav-item {
-        font-size: 1.1rem; /* زيادة الحجم قليلاً */
-        padding: 15px 20px; /* زيادة التباعد الداخلي */
-        width: 100%;
-        text-align: center; /* التأكد من مركزة النصوص */
-    }
-    .logo {
+    .navbar-controls {
         display: flex;
-        flex-direction: column;
-        font-size: 1rem; /* تقليل الحجم على الموبايل */
-        opacity: 0.8; /* تقليل الوضوح لتوفير مساحة */
-    }
-    .logo-main {
-        font-size: 1.2rem;
-        color: #fff;
-        text-shadow: 0 0 4px rgba(244, 114, 182, 0.6);
-    }
-    .logo-subtitle {
-        font-size: 0.9rem;
-        color: #e0e0e0;
-        text-shadow: 0 0 2px rgba(139, 92, 246, 0.5);
+        position: absolute;
+        top: 15px;
+        left: 15px;
     }
     .hero-section {
-        padding-top: 60px; /* تقليل المسافة على الموبايل */
+        padding-top: 60px;
     }
     .hero-title { font-size: 3rem; }
-    .hero-subtitle {
-        font-size: 1.2rem;
-        max-width: 90%; /* تقليل العرض على الموبايل */
-        padding: 0 10px;
-    }
-    .hero-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-    /* إخفاء الأيقونة القديمة على الموبايل */
-    .navbar-controls {
-        display: none !important; /* إخفاء الحاوية على الموبايل */
-    }
-    .lang-option {
-        padding: 15px 20px;
-        text-align: center;
-        cursor: pointer;
-        color: #fff;
-        transition: background 0.3s ease;
-        margin-top: 10px; /* تباعد من الروابط الأخرى */
-    }
-    .lang-option:hover {
-        background: rgba(255, 255, 255, 0.1);
-    }
+    .hero-subtitle { font-size: 1.2rem; max-width: 90%; }
+    .hero-buttons { flex-direction: column; gap: 10px; }
+    .services-grid { grid-template-columns: 1fr; }
 }
 
-/* إبقاء زر اللغة على الشاشات الكبيرة */
 @media (min-width: 769px) {
     .nav-links {
-        flex-grow: 0; /* منع النمو الزائد على الشاشات الكبيرة */
-        justify-content: space-around; /* توزيع الروابط بشكل متساوٍ */
-    }
-    .nav-item {
-        padding: 10px 20px; /* زيادة المسافة على الشاشات الكبيرة */
+        flex-grow: 0;
+        justify-content: space-around;
     }
     .navbar-controls {
         display: flex;
         align-items: center;
-        gap: 20px; /* تباعد أكبر على الشاشات الكبيرة */
-    }
-    .lang-toggle {
-        background: linear-gradient(135deg, #8b5cf6, #f472b6);
-        color: #fff;
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 1rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 3px 10px rgba(244, 114, 182, 0.4);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        position: relative;
-        overflow: hidden;
-    }
-    .lang-toggle::before {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 0;
-        background: rgba(0, 212, 255, 0.5);
-        border-radius: 50%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        transition: width 0.4s ease, height 0.4s ease;
-    }
-    .lang-toggle:hover {
-        transform: scale(1.1);
-        box-shadow: 0 5px 15px rgba(244, 114, 182, 0.6);
-    }
-    .lang-toggle.clicked::before {
-        width: 100px;
-        height: 100px;
-    }
-    .lang-toggle.clicked {
-        transform: scale(1.1);
-        transition: transform 0.3s ease;
+        gap: 20px;
     }
 }
 
-/* ... (باقي الكود يبقى كما هو بعد الـ Media Query) ... */
-
-/* الاتجاه الإنجليزي */
 body.en {
     direction: ltr;
 }
@@ -1226,9 +745,27 @@ body.en .contact-section {
     text-align: center;
 }
 
-/* التأثيرات الحركية */
-@keyframes bounceIn {
-    0% { opacity: 0; transform: scale(0.8); }
-    50% { transform: scale(1.1); }
-    100% { opacity: 1; transform: scale(1); }
+@keyframes parallax {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20%); }
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-50px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
