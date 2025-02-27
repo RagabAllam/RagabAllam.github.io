@@ -1068,6 +1068,8 @@ textarea {
 
 /* ... (الكود الأصلي حتى قبل الـ Media Query يبقى كما هو) ... */
 
+/* ... (الكود الأصلي حتى قبل الـ Media Query يبقى كما هو) ... */
+
 /* التصميم المتجاوب */
 @media (max-width: 768px) {
     .navbar {
@@ -1132,7 +1134,8 @@ textarea {
     .navbar-controls {
         display: flex;
         align-items: center;
-        gap: 30px; /* زيادة التباعد بين الأيقونات لضمان الظهور */
+        gap: 35px; /* زيادة التباعد بين الأيقونات لضمان الظهور */
+        z-index: 1001; /* رفع الطبقة لتجنب التغطية */
     }
     .lang-toggle {
         width: 35px;
@@ -1141,6 +1144,8 @@ textarea {
         margin-left: 0; /* إزالة التباعد الجانبي السابق */
         display: flex !important; /* التأكد من الظهور */
         opacity: 1 !important; /* التأكد من الوضوح */
+        visibility: visible !important; /* التأكد من عدم الاختفاء */
+        z-index: 1002; /* رفع الطبقة فوق أي عنصر آخر */
     }
 }
 
