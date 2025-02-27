@@ -632,7 +632,9 @@ footer {
     background: #1a1a1a;
     padding: 20px;
     text-align: center;
-    color: #ccc;
+    color: #fff; /* تغيير اللون لأبيض عشان يكون واضح */
+    font-size: 1rem; /* التأكد إن الحجم مناسب */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* إضافة حدود للتباين */
 }
 
 .modal {
@@ -688,7 +690,7 @@ footer {
         padding: 15px 20px;
     }
     .nav-links {
-        display: none;
+        display: none; /* مخفي افتراضيًا */
         flex-direction: column;
         position: absolute;
         top: 60px;
@@ -698,26 +700,26 @@ footer {
         padding: 25px;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         border-radius: 10px;
+        z-index: 1001; /* التأكد إنه فوق كل حاجة */
     }
     .nav-links.active {
-        display: flex;
+        display: flex; /* يظهر لما نضغط على الـ menu-toggle */
     }
     .menu-toggle {
-        display: flex;
+        display: flex; /* التأكد إن الأيقونة ظاهرة */
     }
     .navbar-controls {
-        display: flex;
+        display: flex; /* التأكد إن الحاوية بتاعة الـ menu-toggle والـ lang-toggle ظاهرة */
+        align-items: center;
+        gap: 15px; /* مسافة بين الأيقونة والزر */
         position: absolute;
         top: 15px;
         left: 15px;
     }
-    .hero-section {
-        padding-top: 60px;
+    .lang-toggle {
+        display: block; /* التأكد إن زر اللغة ظاهر */
+        padding: 8px 20px; /* تقليل الحجم شوية عشان يناسب الموبايل */
     }
-    .hero-title { font-size: 3rem; }
-    .hero-subtitle { font-size: 1.2rem; max-width: 90%; }
-    .hero-buttons { flex-direction: column; gap: 10px; }
-    .services-grid { grid-template-columns: 1fr; }
 }
 
 @media (min-width: 769px) {
