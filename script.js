@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // تبديل اللغة
     const langToggle = document.querySelector('.lang-toggle');
     let currentLang = localStorage.getItem('lang') || 'ar';
     const translatableElements = document.querySelectorAll('[data-ar], [data-en]');
@@ -32,12 +33,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateLanguage(currentLang);
 
+    // تفعيل الـ Navbar على الموبايل
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             navLinks.classList.toggle('active');
+        });
+    }
+
+    // باقي الوظائف (اختياري حسب الصفحة)
+    const form = document.getElementById('contact-form');
+    if (form) {
+        const emailTo = 'midoallam2003@gmail.com';
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = form.querySelector('input[name="name"]').value;
+            const email = form.querySelector('input[name="email"]').value;
+            const message = form.querySelector('textarea[name="message"]').value;
+            window.location.href = `mailto:${emailTo}?subject=رسالة من ${name}&body=${encodeURIComponent(message)}`;
+            form.reset();
+        });
+    }
+
+    const modal = document.querySelector('.modal');
+    const modalImage = document.getElementById('modalImage');
+    const closeModal = document.querySelector('.close-modal');
+    const projectImages = document.querySelectorAll('.project-image');
+    if (modal && modalImage && closeModal && projectImages.length > 0) {
+        projectImages.forEach(image => {
+            image.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                modalImage.src = image.src;
+                modalImage.alt = image.alt;
+            });
+        });
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
         });
     }
 });

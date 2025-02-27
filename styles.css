@@ -706,11 +706,11 @@ footer {
         z-index: 1001;
     }
     .nav-links.active {
-        display: flex;
+        display: flex; /* التأكد إن الروابط تظهر لما نضغط على الـ Menu */
     }
     .menu-toggle {
-        display: flex;
-        z-index: 1002; /* التأكد إن الأيقونة فوق كل حاجة */
+        display: flex; /* التأكد إن الأيقونة ظاهرة */
+        z-index: 1002;
     }
     .navbar-controls {
         display: flex;
@@ -721,10 +721,10 @@ footer {
         left: 15px;
     }
     .lang-toggle {
-        display: block;
+        display: block; /* التأكد إن زر اللغة ظاهر */
         padding: 8px 20px;
+        font-size: 0.9rem; /* تقليل الحجم شوية عشان الموبايل */
     }
-}
 
 @media (min-width: 769px) {
     .nav-links {
