@@ -14,7 +14,7 @@ body {
 
 /* شريط التنقل (Navbar) - تصميم صغير مع انحناءات */
 .navbar {
-    background: linear-gradient(90deg, #252525, #00d4ff); /* تغيير اللون لتناسق مع الصفحات */
+    background: linear-gradient(90deg, #252525, #00d4ff);
     padding: 10px 30px;
     display: flex;
     justify-content: space-between;
@@ -26,15 +26,15 @@ body {
     backdrop-filter: blur(8px);
     border-radius: 0 0 20px 20px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease; /* تأثير الإخفاء والظهور */
+    transition: transform 0.3s ease;
 }
 
 .navbar.hidden {
-    transform: translateY(-100%); /* إخفاء الـ Navbar لفوق */
+    transform: translateY(-100%);
 }
 
 .navbar.scrolled {
-    background: linear-gradient(90deg, #1a1a1a, #00d4ff); /* لون أغمق قليلًا عند التمرير */
+    background: linear-gradient(90deg, #1a1a1a, #00d4ff);
     padding: 8px 30px;
 }
 
@@ -56,10 +56,16 @@ body {
 }
 
 .logo-subtitle {
-    font-size: 0.7rem;
-    color: #e0e0e0;
-    font-weight: 300;
-    text-shadow: 0 0 4px rgba(0, 212, 255, 0.5);
+    font-size: 0.8rem; /* زيادة الحجم شوية للوضوح */
+    color: #fff; /* لون أبيض غامق وواضح */
+    font-weight: 700; /* خط غامق */
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.5); /* إضاءة حديثة */
+    letter-spacing: 1px; /* تباعد بسيط لشكل عصري */
+    transition: text-shadow 0.3s ease; /* تأثير سلس عند الـ Hover */
+}
+
+.logo:hover .logo-subtitle {
+    text-shadow: 0 0 12px rgba(0, 212, 255, 1), 0 0 20px rgba(255, 255, 255, 0.7); /* إضاءة أقوى عند الـ Hover */
 }
 
 .nav-links {
@@ -827,6 +833,8 @@ body {
     .about-section .about-text { font-size: 1.1rem; }
     .service-card h3 { font-size: 1.3rem; }
     .unique-card { font-size: 0.9rem; }
+    .logo-main { font-size: 1.2rem; }
+    .logo-subtitle { font-size: 0.7rem; }
 }
 
 /* الاتجاه الإنجليزي */
