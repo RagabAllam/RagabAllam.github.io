@@ -56,16 +56,16 @@ body {
 }
 
 .logo-subtitle {
-    font-size: 0.8rem; /* زيادة الحجم شوية للوضوح */
-    color: #fff; /* لون أبيض غامق وواضح */
-    font-weight: 700; /* خط غامق */
-    text-shadow: 0 0 8px rgba(0, 212, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.5); /* إضاءة حديثة */
-    letter-spacing: 1px; /* تباعد بسيط لشكل عصري */
-    transition: text-shadow 0.3s ease; /* تأثير سلس عند الـ Hover */
+    font-size: 0.8rem;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+    transition: text-shadow 0.3s ease;
 }
 
 .logo:hover .logo-subtitle {
-    text-shadow: 0 0 12px rgba(0, 212, 255, 1), 0 0 20px rgba(255, 255, 255, 0.7); /* إضاءة أقوى عند الـ Hover */
+    text-shadow: 0 0 12px rgba(0, 212, 255, 1), 0 0 20px rgba(255, 255, 255, 0.7);
 }
 
 .nav-links {
@@ -219,18 +219,36 @@ body {
 }
 
 .hero-title {
-    font-size: 4.5rem;
-    font-weight: 700;
+    font-size: 4.8rem;
+    font-weight: 800;
     color: #fff;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
+    text-shadow: 0 4px 15px rgba(0, 212, 255, 0.8), 0 0 25px rgba(255, 111, 97, 0.5);
+    margin-bottom: 25px;
+    letter-spacing: 1.5px;
+    transition: text-shadow 0.3s ease;
+}
+
+.hero-title:hover {
+    text-shadow: 0 4px 20px rgba(0, 212, 255, 1), 0 0 30px rgba(255, 111, 97, 0.7);
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    max-width: 700px;
+    font-size: 1.6rem;
+    max-width: 800px;
     color: #e0e0e0;
-    margin: 0 auto 30px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-shadow: 0 2px 10px rgba(0, 212, 255, 0.6);
+    margin: 0 auto 35px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: background 0.3s ease, text-shadow 0.3s ease;
+}
+
+.hero-subtitle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    text-shadow: 0 2px 15px rgba(0, 212, 255, 0.8);
 }
 
 /* الأزرار في الـ Hero Section */
@@ -281,9 +299,9 @@ body {
     box-shadow: 0 10px 25px rgba(0, 212, 255, 0.6);
 }
 
-/* قسم عني - تصميم عصري */
+/* قسم عني - تصميم عصري متطور */
 .about-section {
-    padding: 100px 20px;
+    padding: 120px 20px; /* زيادة المسافة لشكل أكثر اتساعًا */
     background: #1a1a1a;
     display: flex;
     justify-content: center;
@@ -299,43 +317,65 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, rgba(255, 111, 97, 0.1) 100%);
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, rgba(255, 111, 97, 0.15) 100%);
     z-index: 0;
-    animation: gradientPulse 10s infinite ease-in-out;
+    animation: gradientPulse 8s infinite ease-in-out; /* تسريع الحركة لتأثير متطور */
 }
 
 .about-card {
-    background: linear-gradient(135deg, rgba(37, 37, 37, 0.95), rgba(50, 50, 50, 0.95));
-    border-radius: 20px;
-    padding: 40px;
-    max-width: 800px;
+    background: linear-gradient(135deg, rgba(37, 37, 37, 0.9), rgba(60, 60, 60, 0.9)); /* تدرج أعمق */
+    border-radius: 25px; /* انحناءات أكبر */
+    padding: 50px; /* حشوة أكبر لإحساس فاخر */
+    max-width: 900px; /* اتساع أكبر */
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 212, 255, 0.2); /* ظل متعدد الطبقات */
     position: relative;
     z-index: 1;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px); /* تأثير زجاجي أقوى */
+    border: 1px solid rgba(0, 212, 255, 0.3); /* حدود متطورة */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    overflow: hidden;
+}
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent); /* تأثير ضوئي متحرك */
+    animation: shine 3s infinite linear;
 }
 
 .about-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+    transform: translateY(-15px); /* حركة أكبر عند الـ Hover */
+    box-shadow: 0 20px 50px rgba(0, 212, 255, 0.4), 0 0 30px rgba(255, 111, 97, 0.3); /* ظل أكثر تطورًا */
 }
 
 .about-section .section-title {
-    font-size: 3rem;
+    font-size: 3.5rem; /* زيادة الحجم */
     color: #00d4ff;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 10px rgba(0, 212, 255, 0.5);
+    margin-bottom: 25px;
+    text-shadow: 0 3px 15px rgba(0, 212, 255, 0.7); /* إضاءة أقوى */
+    letter-spacing: 1px; /* تباعد عصري */
 }
 
 .about-section .about-text {
-    font-size: 1.3rem;
-    color: #e0e0e0;
-    font-weight: 400;
-    line-height: 1.8;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 1.4rem; /* زيادة خفيفة في الحجم */
+    color: #fff; /* لون أبيض غامق للوضوح */
+    font-weight: 500; /* وزن أقوى */
+    line-height: 1.7; /* تباعد أكبر بين السطور */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.2); /* إضاءة متطورة */
+    padding: 15px 25px; /* حشوة لإبراز النص */
+    background: rgba(255, 255, 255, 0.05); /* خلفية شفافة حديثة */
+    border-radius: 15px; /* انحناءات ناعمة */
+    transition: background 0.3s ease, text-shadow 0.3s ease;
+}
+
+.about-section .about-text:hover {
+    background: rgba(255, 255, 255, 0.1);
+    text-shadow: 0 2px 15px rgba(0, 212, 255, 0.6); /* تأثير Hover متطور */
 }
 
 /* قسم المشاريع */
@@ -723,6 +763,12 @@ body {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
 }
 
 /* التصميم المتجاوب */
