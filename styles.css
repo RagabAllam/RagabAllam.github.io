@@ -919,3 +919,121 @@ body {
 body.en {
     direction: ltr;
 }
+
+/* قسم البرامج المستخدمة */
+.software-section {
+    padding: 60px 20px;
+    text-align: center;
+    background: #1a1a1a;
+}
+
+.software-section .section-title {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 50px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(90deg, #00d4ff, #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.software-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.software-card {
+    background: #252525;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.software-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.software-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+    background: #2a2a2a;
+}
+
+.software-card:hover::before {
+    opacity: 1;
+}
+
+.software-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.software-card:hover .software-logo {
+    transform: scale(1.1);
+}
+
+.software-card p {
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* التصميم المتجاوب لقسم البرامج */
+@media (max-width: 768px) {
+    .software-section {
+        padding: 40px 15px;
+    }
+    .software-section .section-title {
+        font-size: 2.5rem;
+    }
+    .software-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+    }
+    .software-logo {
+        width: 60px;
+        height: 60px;
+    }
+    .software-card p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .software-section .section-title {
+        font-size: 2rem;
+    }
+    .software-grid {
+        grid-template-columns: 1fr;
+    }
+    .software-logo {
+        width: 50px;
+        height: 50px;
+    }
+    .software-card p {
+        font-size: 0.9rem;
+    }
+}
