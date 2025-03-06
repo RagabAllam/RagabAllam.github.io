@@ -40,7 +40,7 @@ body {
 
 .logo {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     transition: transform 0.3s ease;
 }
 
@@ -48,24 +48,11 @@ body {
     transform: scale(1.03);
 }
 
-.logo-main {
-    color: #fff;
-    font-size: 1.4rem;
-    font-weight: 700;
-    text-shadow: 0 0 8px rgba(255, 111, 97, 0.6);
-}
-
-.logo-subtitle {
-    font-size: 0.8rem;
-    color: #fff;
-    font-weight: 700;
-    text-shadow: 0 0 8px rgba(0, 212, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.5);
-    letter-spacing: 1px;
-    transition: text-shadow 0.3s ease;
-}
-
-.logo:hover .logo-subtitle {
-    text-shadow: 0 0 12px rgba(0, 212, 255, 1), 0 0 20px rgba(255, 255, 255, 0.7);
+.logo-image {
+    width: 100px;
+    height: auto;
+    max-height: 50px;
+    object-fit: contain;
 }
 
 .nav-links {
@@ -367,27 +354,27 @@ body {
 }
 
 .about-card {
-    background: rgba(37, 37, 37, 0.9); /* تبسيط التدرج */
+    background: rgba(37, 37, 37, 0.9);
     border-radius: 25px;
     padding: 50px;
     max-width: 900px;
     text-align: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* تقليل الظل */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     position: relative;
     z-index: 1;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .about-card:hover {
-    transform: translateY(-10px); /* تقليل الحركة */
-    box-shadow: 0 15px 25px rgba(0, 212, 255, 0.3); /* تقليل الظل */
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 212, 255, 0.3);
 }
 
 .about-section .section-title {
     font-size: 3.5rem;
     color: #00d4ff;
     margin-bottom: 25px;
-    text-shadow: 0 3px 10px rgba(0, 212, 255, 0.5); /* تقليل الظل */
+    text-shadow: 0 3px 10px rgba(0, 212, 255, 0.5);
     letter-spacing: 1px;
 }
 
@@ -396,7 +383,7 @@ body {
     color: #fff;
     font-weight: 500;
     line-height: 1.7;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); /* تقليل الظل */
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
     padding: 15px 25px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
@@ -405,7 +392,7 @@ body {
 
 .about-section .about-text:hover {
     background: rgba(255, 255, 255, 0.1);
-    text-shadow: 0 2px 8px rgba(0, 212, 255, 0.4); /* تقليل الظل */
+    text-shadow: 0 2px 8px rgba(0, 212, 255, 0.4);
 }
 
 /* قسم المشاريع */
@@ -634,38 +621,38 @@ body {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 50px;
-    text-shadow: 0 2px 5px rgba(139, 92, 246, 0.3); /* تقليل الظل */
+    text-shadow: 0 2px 5px rgba(139, 92, 246, 0.3);
     letter-spacing: 1px;
 }
 
 .unique-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px; /* تقليل التباعد */
+    gap: 20px;
     max-width: 100%;
     margin: 0 auto;
 }
 
 .unique-card.modern-card {
-    background: #252525; /* إزالة التدرج */
-    border-radius: 10px; /* تقليل الانحناء */
+    background: #252525;
+    border-radius: 10px;
     padding: 20px;
     font-size: 1.1rem;
     color: #e0e0e0;
     font-weight: 500;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* تقليل الظل */
-    border: 1px solid #8b5cf6; /* حدود بسيطة */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid #8b5cf6;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 100px; /* تقليل الارتفاع */
+    min-height: 100px;
 }
 
 .unique-card.modern-card:hover {
-    transform: translateY(-5px); /* تقليل الحركة */
-    box-shadow: 0 8px 15px rgba(139, 92, 246, 0.2); /* تقليل الظل */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(139, 92, 246, 0.2);
 }
 
 /* النافذة المنبثقة (Modal) */
@@ -920,8 +907,7 @@ body {
     .about-section .about-text { font-size: 1.1rem; }
     .service-card h3 { font-size: 1.3rem; }
     .unique-card.modern-card { font-size: 0.9rem; }
-    .logo-main { font-size: 1.2rem; }
-    .logo-subtitle { font-size: 0.7rem; }
+    .logo-image { width: 80px; max-height: 40px; }
     .lang-toggle {
         width: 30px;
         height: 30px;
