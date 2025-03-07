@@ -512,40 +512,38 @@ body {
     -webkit-text-fill-color: transparent;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 }
 
-/* تحسين مظهر الرموز التعبيرية بدلاً من Font Awesome */
+/* إزالة الرموز التعبيرية وإضافة فواصل */
 .package-icon {
-    font-size: 1.8rem;
-    color: #00d4ff;
-    text-shadow: 0 2px 5px rgba(0, 212, 255, 0.4);
-    transition: transform 0.3s ease;
-}
-
-.price-card:hover .package-icon {
-    transform: scale(1.2);
+    display: none;
 }
 
 .package-features {
     list-style: none;
     margin-bottom: 20px;
     color: #ccc;
-    text-align: right;
+    text-align: center;
 }
 
 .package-features li {
     font-size: 1.1rem;
     margin: 10px 0;
     position: relative;
-    padding-right: 20px;
+    padding: 0;
+    padding-bottom: 8px; /* مسافة تحت النص قبل الفاصل */
+    border-bottom: 1px dashed #00d4ff; /* فاصل أفقي بسيط منقط بلون مميز */
+}
+
+.package-features li:last-child {
+    border-bottom: none; /* إزالة الفاصل من آخر عنصر */
+    padding-bottom: 0; /* إزالة المسافة الإضافية من آخر عنصر */
 }
 
 .package-features li::before {
-    content: '📌';
-    position: absolute;
-    right: 0;
-    color: #00d4ff;
+    content: '';
 }
 
 .package-price {
@@ -1019,9 +1017,6 @@ body {
     .package-title {
         font-size: 1.4rem;
     }
-    .package-icon {
-        font-size: 1.6rem;
-    }
     .package-features li {
         font-size: 1rem;
     }
@@ -1068,9 +1063,6 @@ body {
     .package-title {
         font-size: 1.3rem;
     }
-    .package-icon {
-        font-size: 1.4rem;
-    }
     .package-features li {
         font-size: 0.9rem;
     }
@@ -1099,22 +1091,24 @@ body.en {
 
 body.en .package-title {
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 body.en .package-features {
-    text-align: left;
+    text-align: center;
 }
 
 body.en .package-features li {
-    padding-right: 0;
-    padding-left: 20px;
+    padding: 0;
+    padding-bottom: 8px; /* نفس المسافة للفاصل في اللغة الإنجليزية */
+    border-bottom: 1px dashed #00d4ff; /* نفس الفاصل في اللغة الإنجليزية */
+}
+
+body.en .package-features li:last-child {
+    border-bottom: none; /* إزالة الفاصل من آخر عنصر */
+    padding-bottom: 0; /* إزالة المسافة الإضافية */
 }
 
 body.en .package-features li::before {
-    content: '📌';
-    position: absolute;
-    left: 0;
-    right: auto;
-    color: #00d4ff;
+    content: '';
 }
