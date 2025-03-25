@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastScrollTop = 0;
 
     if (navbar) {
-        // تغيير لون الـ Navbar عند التمرير (موجود أصلًا)
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
@@ -22,16 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 navbar.classList.remove('scrolled');
             }
 
-            // إخفاء وظهور الـ Navbar بناءً على اتجاه التمرير
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             if (scrollTop > lastScrollTop) {
-                // Scroll Down - إخفاء
                 navbar.classList.add('hidden');
             } else {
-                // Scroll Up - ظهور
                 navbar.classList.remove('hidden');
             }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // منع القيم السالبة
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
     }
 
@@ -99,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const elements = document.querySelectorAll('[data-ar][data-en]');
     const langToggle = document.querySelector('.lang-toggle');
     const navItems = document.querySelectorAll('.nav-item');
+    const logoImage = document.querySelector('.logo-image');
 
     if (!langToggle) {
         console.error('Language toggle button not found!');
@@ -112,6 +109,9 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.forEach(element => {
             element.textContent = element.getAttribute('data-en');
         });
+        if (logoImage) {
+            logoImage.src = logoImage.getAttribute('data-en');
+        }
         document.title = document.querySelector('title').getAttribute('data-en');
     } else {
         document.body.classList.remove('en');
@@ -119,6 +119,9 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.forEach(element => {
             element.textContent = element.getAttribute('data-ar');
         });
+        if (logoImage) {
+            logoImage.src = logoImage.getAttribute('data-ar');
+        }
         document.title = document.querySelector('title').getAttribute('data-ar');
     }
 
@@ -133,6 +136,10 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.forEach(element => {
             element.textContent = isEnglish ? element.getAttribute('data-en') : element.getAttribute('data-ar');
         });
+
+        if (logoImage) {
+            logoImage.src = isEnglish ? logoImage.getAttribute('data-en') : logoImage.getAttribute('data-ar');
+        }
 
         document.title = isEnglish ? document.querySelector('title').getAttribute('data-en') : document.querySelector('title').getAttribute('data-ar');
     });
